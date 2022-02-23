@@ -6,6 +6,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import java.net.MalformedURLException;
+
 import static com.codeborne.selenide.Selectors.byClassName;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -16,7 +18,7 @@ public class WikiTestEmulation extends TestBase {
     @Test
     @DisplayName("Check app language")
     @Tag("emulation")
-    void checkLanguage() {
+    void checkLanguage() throws MalformedURLException, InterruptedException {
         step("Click on search field", () ->
                 $(MobileBy.AccessibilityId("Search Wikipedia")).click());
 
