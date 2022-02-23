@@ -16,7 +16,7 @@ public class WikiTestEmulation extends TestBase {
     @Test
     @DisplayName("Check app language")
     @Tag("emulation")
-    void checkLanguage() {
+    void checkLanguage() throws MalformedURLException, InterruptedException  {
         step("Click on search field", () ->
                 $(MobileBy.AccessibilityId("Search Wikipedia")).click());
 
