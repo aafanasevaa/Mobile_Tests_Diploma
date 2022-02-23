@@ -12,7 +12,7 @@ import java.net.URL;
 
 public class SelenoidMobileDriver implements WebDriverProvider {
 
-    public static SelenoidConfig selenoidConfig = ConfigFactory.create(SelenoidConfig.class, System.getProperties());
+    public static SelenoidConfig selenoidConfig = ConfigFactory.create(SelenoidConfig.class);
 
     public static URL getSelenoidUrl() {
         try {
@@ -34,7 +34,18 @@ public class SelenoidMobileDriver implements WebDriverProvider {
         desiredCapabilities.setCapability("enableVideo", true);
         desiredCapabilities.setCapability("appPackage", selenoidConfig.appPackage());
         desiredCapabilities.setCapability("appActivity", selenoidConfig.appActivity());
+        desiredCapabilities.setCapability("app", apkUrl());
 
         return new AndroidDriver(getSelenoidUrl(), desiredCapabilities);
     }
+
+    private URL apkUrl() {
+        try {
+            return new URL("https://github.com/wikimedia/apps-android-wikipedia/releases/download/latest/app-alpha-universal-release.apk");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
