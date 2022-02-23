@@ -18,7 +18,7 @@ public class LocalMobileDriver implements WebDriverProvider {
 
     public static URL getBrowserstackUrl() {
         try {
-            return new URL("http://127.0.0.1:4723/wd/hub");
+            return new URL(localConfig.url());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -27,15 +27,15 @@ public class LocalMobileDriver implements WebDriverProvider {
     @Override
     public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
 
-        desiredCapabilities.setCapability("platformName", "android");
-        desiredCapabilities.setCapability("deviceName", "SHOULDBECHANGED");
-        desiredCapabilities.setCapability("version", "11.0");
+        desiredCapabilities.setCapability("platformName", localConfig.platformName());
+        desiredCapabilities.setCapability("deviceName", localConfig.deviceName());
+        desiredCapabilities.setCapability("version", localConfig.version());
         desiredCapabilities.setCapability("locale", "en");
         desiredCapabilities.setCapability("language", "en");
         desiredCapabilities.setCapability("appPackage", "org.wikipedia.alpha");
         desiredCapabilities.setCapability("appActivity", "org.wikipedia.main.MainActivity");
         desiredCapabilities.setCapability("app",
-                getAbsolutePath("src/test/resources/apk/app-alpha-universal-release.apk"));
+                getAbsolutePath(localConfig.appPath()));
 
         return new AndroidDriver(getBrowserstackUrl(), desiredCapabilities);
     }

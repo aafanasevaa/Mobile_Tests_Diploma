@@ -10,14 +10,14 @@ import org.aeonbits.owner.Config;
 
 public interface BrowserstackConfig extends Config {
 
-    @Key("browserstackUser")
-    String browserstackUser();
+    @Key("user")
+    String user();
 
-    @Key("browserstackPassword")
-    String browserstackPassword();
+    @Key("key")
+    String key();
 
-    @Key("browserstackUrl")
-    String browserstackUrl();
+    @Key("url")
+    String url();
 
     @Key("appUrl")
     String appUrl();
