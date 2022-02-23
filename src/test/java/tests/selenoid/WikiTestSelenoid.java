@@ -13,8 +13,9 @@ import static io.qameta.allure.Allure.step;
 
 public class WikiTestSelenoid extends TestBase {
 
-    @DisplayName("Search Wikipedia in Wikipedia app")
     @Test
+    @DisplayName("Search Wikipedia in Wikipedia app")
+    @Tag("selenoid")
     void searchWikipediaInWikipedia() {
         step("Click on search field", () ->
                 $(MobileBy.AccessibilityId("Search Wikipedia")).click());
