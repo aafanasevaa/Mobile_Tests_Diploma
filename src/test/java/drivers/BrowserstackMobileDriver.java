@@ -7,6 +7,7 @@ import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import javax.annotation.Nonnull;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -22,6 +23,7 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         }
     }
 
+    @Nonnull
     @Override
     public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
         // Set your access credentials
@@ -41,7 +43,7 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         desiredCapabilities.setCapability("name", "first_test");
 
         // Initialise the remote Webdriver using BrowserStack remote URL
-        // and desired capabilities defined above
+//        // and desired capabilities defined above
         return new AndroidDriver(getBrowserstackUrl(), desiredCapabilities);
     }
 }

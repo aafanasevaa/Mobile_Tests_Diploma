@@ -16,7 +16,7 @@ public class LocalMobileDriver implements WebDriverProvider {
 
     private static final LocalConfig localConfig = ConfigFactory.create(LocalConfig.class, System.getProperties());
 
-    public static URL getBrowserstackUrl() {
+    public static URL getlocalUrl() {
         try {
             return new URL(localConfig.url());
         } catch (MalformedURLException e) {
@@ -37,6 +37,6 @@ public class LocalMobileDriver implements WebDriverProvider {
         desiredCapabilities.setCapability("app",
                 getAbsolutePath(localConfig.appPath()));
 
-        return new AndroidDriver(getBrowserstackUrl(), desiredCapabilities);
+        return new AndroidDriver(getlocalUrl(), desiredCapabilities);
     }
 }
