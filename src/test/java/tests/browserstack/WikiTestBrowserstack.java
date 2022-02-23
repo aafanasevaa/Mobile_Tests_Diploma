@@ -5,8 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import java.net.MalformedURLException;
-
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Selectors.byClassName;
 import static com.codeborne.selenide.Selenide.$;
@@ -18,7 +16,7 @@ public class WikiTestBrowserstack extends TestBase {
     @Test
     @DisplayName("Search Wikipedia in Wikipedia app")
     @Tag("browserstack")
-    void searchWikipediaInWikipedia() throws MalformedURLException, InterruptedException {
+    void searchWikipediaInWikipedia() {
         step("Click on search field", () ->
                 $(MobileBy.AccessibilityId("Search Wikipedia")).click());
         step("Fill the input field and execute the search", () ->
