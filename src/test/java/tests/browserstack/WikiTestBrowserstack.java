@@ -14,6 +14,7 @@ public class WikiTestBrowserstack extends TestBase {
 
     @Test
     @DisplayName("Search Wikipedia in Wikipedia app")
+    @Tag("browserstack")
     void searchWikipediaInWikipedia() {
         step("Click on search field", () ->
                 $(MobileBy.AccessibilityId("Search Wikipedia")).click());

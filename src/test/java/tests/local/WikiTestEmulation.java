@@ -3,6 +3,7 @@ package tests.local;
 import com.codeborne.selenide.Condition;
 import io.appium.java_client.MobileBy;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.byClassName;
@@ -14,6 +15,7 @@ public class WikiTestEmulation extends TestBase {
 
     @Test
     @DisplayName("Check app language")
+    @Tag("emulation")
     void checkLanguage() {
         step("Click on search field", () ->
                 $(MobileBy.AccessibilityId("Search Wikipedia")).click());

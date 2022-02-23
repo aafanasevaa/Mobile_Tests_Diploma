@@ -48,3 +48,22 @@ tasks.withType(Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform()
 }
+
+task browserstack(type: Test) {
+    useJUnitPlatform {
+        includeTags 'browserstack'
+    }
+}
+
+
+task emulation(type: Test) {
+    useJUnitPlatform {
+        includeTags 'emulation'
+    }
+}
+
+task selenoid(type: Test) {
+    useJUnitPlatform {
+        includeTags 'selenoid'
+    }
+}
