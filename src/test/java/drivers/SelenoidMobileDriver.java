@@ -18,7 +18,7 @@ public class SelenoidMobileDriver implements WebDriverProvider {
     private URL apkUrl() {
         try {
             return new URL(
-                    selenoidConfig.selenoidAppUrl());
+                    "https://github.com/wikimedia/apps-android-wikipedia/releases/download/latest/app-alpha-universal-release.apk");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
