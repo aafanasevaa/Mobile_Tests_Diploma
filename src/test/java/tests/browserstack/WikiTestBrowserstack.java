@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 
-public class WikiTestBrowserstack extends TestBase {
+public class WikiTestBrowserstack extends BrowserstackTestBase {
 
     @Test
     @DisplayName("Search Wikipedia in Wikipedia app")

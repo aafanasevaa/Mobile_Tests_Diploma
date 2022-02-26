@@ -1,24 +1,28 @@
-package tests.browserstack;
+package tests.selenoid;
+
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
+import static helpers.Attach.getSessionId;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import drivers.BrowserstackMobileDriver;
+import drivers.SelenoidMobileDriver;
 import helpers.Attach;
+import io.qameta.allure.junit5.AllureJunit5;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 
-import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static com.codeborne.selenide.Selenide.open;
-import static helpers.Attach.getSessionId;
+@ExtendWith({AllureJunit5.class})
+public class LocalTestBase {
 
-public class TestBase {
     @BeforeAll
-    public static void setup(){
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    public static void setup() {
+        addListener("AllureSelenide", new AllureSelenide());
 
-        Configuration.browser = BrowserstackMobileDriver.class.getName();
+        Configuration.browser = SelenoidMobileDriver.class.getName();
         Configuration.startMaximized = false;
         Configuration.browserSize = null;
         Configuration.timeout = 10000;
@@ -30,7 +34,7 @@ public class TestBase {
     }
 
     @AfterEach
-    public void afterEach(){
+    public void afterEach() {
         String sessionId = getSessionId();
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
