@@ -9,8 +9,7 @@ import java.net.MalformedURLException;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Selectors.byClassName;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class WikiTestSelenoid extends TestBase {
@@ -19,6 +18,7 @@ public class WikiTestSelenoid extends TestBase {
     @DisplayName("Search Wikipedia in Wikipedia app")
     @Tag("selenoid")
     void searchWikipediaInWikipedia() {
+        back();
         step("Click on search field", () ->
                 $(MobileBy.AccessibilityId("Search Wikipedia")).click());
         step("Fill the input field and execute the search", () ->
