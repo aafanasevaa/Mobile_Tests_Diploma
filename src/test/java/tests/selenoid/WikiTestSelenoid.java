@@ -18,7 +18,7 @@ public class WikiTestSelenoid extends TestBase {
     @Test
     @DisplayName("Search Wikipedia in Wikipedia app")
     @Tag("selenoid")
-    void searchWikipediaInWikipedia() throws MalformedURLException, InterruptedException  {
+    void searchWikipediaInWikipedia() {
         step("Click on search field", () ->
                 $(MobileBy.AccessibilityId("Search Wikipedia")).click());
         step("Fill the input field and execute the search", () ->

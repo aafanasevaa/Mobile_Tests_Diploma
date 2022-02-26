@@ -3,18 +3,29 @@ package drivers;
 import com.codeborne.selenide.WebDriverProvider;
 import config.SelenoidConfig;
 import io.appium.java_client.android.AndroidDriver;
-import org.aeonbits.owner.ConfigFactory;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import org.aeonbits.owner.ConfigFactory;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class SelenoidMobileDriver implements WebDriverProvider {
 
     public static SelenoidConfig selenoidConfig = ConfigFactory.create(SelenoidConfig.class);
 
-    public static URL getSelenoidUrl() {
+    private URL apkUrl() {
+        try {
+            return new URL(
+                    selenoidConfig.selenoidAppUrl());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static URL getAppiumServerUrl() {
         try {
             return new URL(selenoidConfig.selenoidUrl());
         } catch (MalformedURLException e) {
@@ -25,7 +36,7 @@ public class SelenoidMobileDriver implements WebDriverProvider {
     @Override
     public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
 
-        desiredCapabilities.setCapability("platformName",   selenoidConfig.platformName());
+        desiredCapabilities.setCapability("platformName", selenoidConfig.platformName());
         desiredCapabilities.setCapability("deviceName", selenoidConfig.deviceName());
         desiredCapabilities.setCapability("version", selenoidConfig.version());
         desiredCapabilities.setCapability("locale", selenoidConfig.locale());
@@ -36,16 +47,6 @@ public class SelenoidMobileDriver implements WebDriverProvider {
         desiredCapabilities.setCapability("appActivity", selenoidConfig.appActivity());
         desiredCapabilities.setCapability("app", apkUrl());
 
-        return new AndroidDriver(getSelenoidUrl(), desiredCapabilities);
+        return new AndroidDriver(getAppiumServerUrl(), desiredCapabilities);
     }
-
-    private URL apkUrl() {
-        try {
-            return new URL("https://github.com/wikimedia/apps-android-wikipedia/releases/download/latest/app-alpha-universal-release.apk");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
 }

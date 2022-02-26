@@ -13,12 +13,12 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 
-public class WikiTestEmulation extends TestBase {
+public class WikiTestLocal extends TestBase {
 
     @Test
     @DisplayName("Check app language")
     @Tag("emulation")
-    void checkLanguage() throws MalformedURLException, InterruptedException {
+    void checkLanguage() {
         step("Click on search field", () ->
                 $(MobileBy.AccessibilityId("Search Wikipedia")).click());
 

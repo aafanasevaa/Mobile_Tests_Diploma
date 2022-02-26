@@ -3,30 +3,33 @@ package drivers;
 import com.codeborne.selenide.WebDriverProvider;
 import config.BrowserstackConfig;
 import io.appium.java_client.android.AndroidDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import javax.annotation.Nonnull;
+
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import javax.annotation.Nonnull;
-import java.net.MalformedURLException;
-import java.net.URL;
-
 public class BrowserstackMobileDriver implements WebDriverProvider {
 
-    public static BrowserstackConfig browserstackConfig = ConfigFactory.create(BrowserstackConfig.class);
+    public static BrowserstackConfig browserStackConfig = ConfigFactory.create(
+            BrowserstackConfig.class, System.getProperties());
 
+    @Nonnull
     @Override
     public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
         // Set your access credentials
-        desiredCapabilities.setCapability("browserstack.user", browserstackConfig.user());
-        desiredCapabilities.setCapability("browserstack.key", browserstackConfig.key());
+        desiredCapabilities.setCapability("browserstack.user", browserStackConfig.user());
+        desiredCapabilities.setCapability("browserstack.key", browserStackConfig.key());
 
         // Set URL of the application under test
-        desiredCapabilities.setCapability("app", browserstackConfig.appUrl());
+        desiredCapabilities.setCapability("app", browserStackConfig.app());
 
         // Specify device and os_version for testing
-        desiredCapabilities.setCapability("device", browserstackConfig.device());
-        desiredCapabilities.setCapability("osVersion", browserstackConfig.osVersion());
+        desiredCapabilities.setCapability("device", browserStackConfig.device());
+        desiredCapabilities.setCapability("os_version", browserStackConfig.osVersion());
 
         // Set other BrowserStack capabilities
         desiredCapabilities.setCapability("project", "First Java Project");
@@ -34,8 +37,9 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         desiredCapabilities.setCapability("name", "first_test");
 
         // Initialise the remote Webdriver using BrowserStack remote URL
-//        // and desired capabilities defined above
+        // and desired capabilities defined above
         return new AndroidDriver(getBrowserstackUrl(), desiredCapabilities);
+
     }
 
     public static URL getBrowserstackUrl() {
