@@ -17,14 +17,6 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
     public static BrowserstackConfig browserStackConfig = ConfigFactory.create(
             BrowserstackConfig.class, System.getProperties());
 
-    public static URL getBrowserStackUrl() {
-        try {
-            return new URL(browserStackConfig.url());
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     @Nonnull
     @Override
     public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
@@ -48,5 +40,13 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         // and desired capabilities defined above
         return new AndroidDriver(getBrowserStackUrl(), desiredCapabilities);
 
+    }
+
+    public static URL getBrowserStackUrl() {
+        try {
+            return new URL(browserStackConfig.url());
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
