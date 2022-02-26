@@ -28,8 +28,8 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         desiredCapabilities.setCapability("app", browserStackConfig.app());
 
         // Specify device and os_version for testing
-        desiredCapabilities.setCapability("device", browserStackConfig.device());
-        desiredCapabilities.setCapability("os_version", browserStackConfig.osVersion());
+        desiredCapabilities.setCapability("device", "Google Pixel 3");
+        desiredCapabilities.setCapability("os_version", "9.0");
 
         // Set other BrowserStack capabilities
         desiredCapabilities.setCapability("project", "First Java Project");
@@ -38,11 +38,11 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
 
         // Initialise the remote Webdriver using BrowserStack remote URL
         // and desired capabilities defined above
-        return new AndroidDriver(getBrowserstackUrl(), desiredCapabilities);
+        return new AndroidDriver(getBrowserStackUrl(), desiredCapabilities);
 
     }
 
-    public static URL getBrowserstackUrl() {
+    public static URL getBrowserStackUrl() {
         try {
             return new URL("http://hub.browserstack.com/wd/hub");
         } catch (MalformedURLException e) {
