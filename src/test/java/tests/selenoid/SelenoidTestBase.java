@@ -36,7 +36,6 @@ public class SelenoidTestBase {
     @AfterEach
     public void afterEach() {
         String sessionId = getSessionId();
-
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         closeWebDriver();
