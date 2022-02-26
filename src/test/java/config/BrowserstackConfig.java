@@ -18,4 +18,5 @@ public interface BrowserstackConfig extends Config {
 
     String osVersion();
 
+    String url();
 }
