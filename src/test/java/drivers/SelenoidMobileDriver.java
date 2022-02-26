@@ -25,7 +25,7 @@ public class SelenoidMobileDriver implements WebDriverProvider {
         return null;
     }
 
-    public static URL getAppiumServerUrl() {
+    public static URL getSelenoidUrl() {
         try {
             return new URL(selenoidConfig.selenoidUrl());
         } catch (MalformedURLException e) {
@@ -47,6 +47,6 @@ public class SelenoidMobileDriver implements WebDriverProvider {
         desiredCapabilities.setCapability("appActivity", selenoidConfig.appActivity());
         desiredCapabilities.setCapability("app", apkUrl());
 
-        return new AndroidDriver(getAppiumServerUrl(), desiredCapabilities);
+        return new AndroidDriver(getSelenoidUrl(), desiredCapabilities);
     }
 }
