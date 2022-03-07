@@ -2,13 +2,13 @@
 
 ## :hammer_and_wrench: Technology stack:  
 <img src="https://github.com/aafanasyevaa/aafanasyevaa/blob/main/media/Java.png" width="60" height="60" /> ***Java*** — `object-oriented programming language`   
-<img src="https://github.com/aafanasyevaa/aafanasyevaa/blob/main/media/Appium.png" width="50" height="40" /> ***Appium*** - ` open source test automation framework for use with native, hybrid and mobile web apps`   
-<img src="https://github.com/aafanasyevaa/aafanasyevaa/blob/main/media/Browserstack.jpg" width="67" height="60" /> - ***Browserstack*** - `cloud web and mobile testing platform`   
+<img src="https://github.com/aafanasyevaa/aafanasyevaa/blob/main/media/Appium.png" width="60" height="50" /> ***Appium*** - ` open source test automation framework for use with native, hybrid and mobile web apps`   
+<img src="https://user-images.githubusercontent.com/93313607/157080603-b5492a7c-b42c-4b20-9920-8332d75bb838.png" width="60" height="50" /> ***Browserstack*** - `cloud web and mobile testing platform`   
 <img src="https://github.com/aafanasyevaa/aafanasyevaa/blob/main/media/Gradle.png" width="60" height="55" /> ***Gradle*** — `a build automation tool for multi-language software development`     
-<img src="https://github.com/aafanasyevaa/aafanasyevaa/blob/main/media/Junit.png" width="55" height="50" />  ***Junit*** — `unit testing framework for the Java programming language`     
+<img src="https://user-images.githubusercontent.com/93313607/157080852-22b7d42d-3a75-44b3-886f-01e90c56772d.png" width="60" height="50" />  ***Junit*** — `unit testing framework for the Java programming language`     
 <img src="https://github.com/aafanasyevaa/aafanasyevaa/blob/main/media/Jenkins.jpg" width="60" height="50" /> ***Jenkins*** — `open source automation server`   
-<img src="https://github.com/aafanasyevaa/aafanasyevaa/blob/main/media/Rest-Assured.png" width="60" height="35" /> ***Rest-Assured*** — `Java-based library that is used to test RESTful Web Services`  
-<img src="https://github.com/aafanasyevaa/aafanasyevaa/blob/main/media/Allure.jpg" width="50" height="40" /> ***Allure*** — `Software Quality Management Platform`   
+<img src="https://user-images.githubusercontent.com/93313607/157080948-1f6fc61a-2821-418d-a1e9-b51750e4985e.png" width="60" height="55" /> ***Rest-Assured*** — `Java-based library that is used to test RESTful Web Services`  
+<img src="https://user-images.githubusercontent.com/93313607/157081053-9628f724-240e-45d7-977c-fbc3f4cb2c6c.png" width="60" height="40" /> ***Allure*** — `Software Quality Management Platform`   
 
 ***
 
